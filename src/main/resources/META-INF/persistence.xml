@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+	<persistence-unit name="pedidos" transaction-type="RESOURCE_LOCAL">
+		
+		<provider>org.hibernate.ejb.HibernatePersistence</provider> 
+		<properties>	
+		<!--Aplicação local 
+			<property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://ATHENAS:1433;databaseName=Pedidos" />
+			<property name="javax.persistence.jdbc.user" value="sa" />
+			<property name="javax.persistence.jdbc.password" value="A12345678a" />
+		-->	
+		
+		<!--Container docker com SQL Server Local 
+			<property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://host.docker.internal:1433;databaseName=Pedidos" />
+		-->
+		<!--Aplicação e banco em container docker 			-->
+			<property name="hibernate.connection.url" value="jdbc:mysql://mysql_db/pedidos" />
+			<property name="javax.persistence.jdbc.user" value="user" />
+			<property name="javax.persistence.jdbc.password" value="A12345678a" />
+		
+			
+
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<!--<property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect" />-->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+			
+<!-- 			<property name="hibernate.connection.provider_class" value="org.hibernate.connection.C3P0ConnectionProvider" /> -->
+
+<!-- 	        <property name="hibernate.c3p0.max_size" value="100" /> -->
+<!-- 	        <property name="hibernate.c3p0.min_size" value="5" /> -->
+<!-- 	        <property name="hibernate.c3p0.acquire_increment" value="1" /> -->
+<!-- 	        <property name="hibernate.c3p0.idle_test_period" value="300" /> -->
+<!-- 	        <property name="hibernate.c3p0.max_statements" value="50" /> -->
+<!-- 	        <property name="hibernate.c3p0.timeout" value="300" /> -->
+			
+			
+<!-- 	<property name="hibernate.connection.provider">org.hibernate.connection.C3P0ConnectionProvider</property>   -->
+<!-- 	<property name="hibernate.c3p0.privilegeSpawnedThreads">true</property> -->
+<!-- 	<property name="hibernate.c3p0.contextClassLoaderSource">library</property> -->
+    
+    
+<!-- 	<property name="hibernate.c3p0.min_size">5</property>   -->
+<!-- 	<property name="hibernate.c3p0.max_size">100</property> -->
+<!-- 	<property name="hibernate.c3p0.timeout">1800</property>  -->
+<!-- 	<property name="hibernate.c3p0.max_statements">50</property>   -->
+<!-- 	<property name="hibernate.c3p0.idle_test_period">3000</property> -->
+<!-- 	<property name="hibernate.c3p0.min_size">5</property> -->
+<!-- 	<property name="hibernate.c3p0.max_size">100</property>   -->
+<!-- 	<property name="hibernate.c3p0.timeout">300</property> -->
+<!-- 	<property name="hibernate.c3p0.max_statements">50</property> -->
+<!-- 	<property name="hibernate.c3p0.idle_test_period">3000</property> -->
+			
+			
+			
+		</properties>
+	
+		
+	
+		
+<!-- 		<class>classes.Enquete</class> -->
+<!-- 		<class>classes.Pergunta</class> -->
+<!-- 		<class>classes.Resposta</class> -->
+<!-- 		<class>classes.Pesquisa</class> -->
+<!-- 		<class>classes.ItemPesquisa</class> -->
+
+<!-- 		<properties> -->
+<!-- 			<property name="javax.persistence.jdbc.driver" value="net.sourceforge.jtds.jdbc.Driver" /> -->
+<!-- 			<property name="javax.persistence.jdbc.url" value="jdbc:jtds:sqlserver://bi-bd.grupopetropolis.com.br:1433/PortalCP" /> -->
+<!-- 			<property name="javax.persistence.jdbc.user" value="BI_USER" /> -->
+<!-- 			<property name="javax.persistence.jdbc.password" value="Ghd$#jdf13@26" /> -->
+<!-- 			<property name="current_session_context_class" value="thread"/> essa propriedade não existe no persistence original -->
+<!-- 			<property name="hibernate.default_schema" value="dbo"/>essa propriedade não existe no persistence original -->
+<!-- 			<property name="hibernate.hbm2ddl.auto" value="update" /> -->
+<!-- 			<property name="hibernate.show_sql" value="true" /> -->
+<!-- 			<property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect" /> -->
+<!-- 		</properties> -->
+	</persistence-unit>
+</persistence>

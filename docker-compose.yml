@@ -1,0 +1,38 @@
+version:  '3'
+services:
+  mysql_db:   
+    image:  mysql
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+      - ./mysql_data:/var/lib/mysql
+    container_name: mysql-api
+    restart: always
+    ports:
+      - 3306:3306   
+    environment:
+      MYSQL_ROOT_PASSWORD: A12345678a
+      MYSQL_DATABASE: pedidos
+      MYSQL_USER: user
+      MYSQL_PASSWORD: A12345678a
+    networks:
+      - rede
+
+  pedidos_api:
+    build:
+      dockerfile: ./docker/pedidos-api.dockerfile
+      context:  .
+    image:  jaderlima/pedidos-api-img
+    container_name: pedidos-api
+    ports:
+      - 8080:8080   
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    depends_on:
+      - mysql_db
+    networks:
+      - rede
+networks:
+  rede:
+    driver: bridge
+
