@@ -8,7 +8,7 @@
 		
 		<provider>org.hibernate.ejb.HibernatePersistence</provider> 
 		<properties>	
-		<!--Aplicação local 
+		<!--Aplicação mssqlserver - pasta sqlserver, existe um script para criação do banco de dados e suas tabelas
 			<property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://ATHENAS:1433;databaseName=Pedidos" />
 			<property name="javax.persistence.jdbc.user" value="sa" />
